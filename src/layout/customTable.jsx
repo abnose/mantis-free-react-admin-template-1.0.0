@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Space, Table } from 'antd';
+import { CheckOutlined ,CloseOutlined ,MehOutlined ,SmileOutlined,EditOutlined,DeleteOutlined } from '@ant-design/icons'; 
+
 const data = [
     {
       key: '1',
@@ -14,8 +16,8 @@ const data = [
       modifierGroup: 'Modifier Group 1',
       barcode: '1234567890',
       active: 'Yes',
-      haHours: '10:00 - 22:00',
-      color: 'Red',
+      haHours: 'Happy',
+      color: '#ff0000',
       createdAt: '2024-12-01',
     },
     {
@@ -31,8 +33,8 @@ const data = [
       modifierGroup: 'Modifier Group 2',
       barcode: '0987654321',
       active: 'No',
-      haHours: '11:00 - 20:00',
-      color: 'Blue',
+      haHours: 'Sad',
+      color: '#ffff00',
       createdAt: '2025-01-15',
     },
   ];
@@ -65,15 +67,14 @@ const CustomTable = () => {
       sorter: (a, b) => a.itemName.localeCompare(b.itemName),
       sortOrder: sortedInfo.columnKey === 'itemName' ? sortedInfo.order : null,
       ellipsis: true,
-    //   width: 250, 
       align: 'center',
-      render: (data) => <div  className="bg-red-300">{data}</div>
     },
     {
       title: 'Name on Display',
       dataIndex: 'nameOnDisplay',
       key: 'nameOnDisplay',
       ellipsis: true,
+      align: 'center',
       render: (data) => <div className="">{data}</div>
 
     },
@@ -84,6 +85,8 @@ const CustomTable = () => {
       sorter: (a, b) => a.price - b.price,
       sortOrder: sortedInfo.columnKey === 'price' ? sortedInfo.order : null,
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Printer',
@@ -96,42 +99,56 @@ const CustomTable = () => {
       filteredValue: filteredInfo.printer || null,
       onFilter: (value, record) => record.printer === value,
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'KDS',
       dataIndex: 'Kds',
       key: 'Kds',
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Category',
       dataIndex: 'category',
       key: 'category',
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Size',
       dataIndex: 'size',
       key: 'size',
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Tax Rate',
       dataIndex: 'taxRate',
       key: 'taxRate',
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Modifier Group',
       dataIndex: 'modifierGroup',
       key: 'modifierGroup',
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Barcode',
       dataIndex: 'barcode',
       key: 'barcode',
       ellipsis: true,
+      align: 'center',
+
     },
     {
       title: 'Active',
@@ -144,18 +161,30 @@ const CustomTable = () => {
       filteredValue: filteredInfo.active || null,
       onFilter: (value, record) => record.active === value,
       ellipsis: true,
+      align: 'center',
+      render: (data) => <div  className="flex justify-center gap-2">
+       {data == 'Yes' ? <CheckOutlined /> : <CloseOutlined />} </div>
     },
     {
       title: 'HA Hours',
       dataIndex: 'haHours',
       key: 'haHours',
       ellipsis: true,
+      align: 'center',
+      render: (data) => <div  className="flex justify-center gap-2">
+       {data == 'Happy' ? <SmileOutlined /> : <MehOutlined />} </div>
     },
     {
       title: 'Color',
       dataIndex: 'color',
       key: 'color',
       ellipsis: true,
+      align: 'center',
+      render: (data) => <div  className="flex justify-start gap-2">
+         <div style={{background: data}} className="w-[20px] h-[20px]"></div> {data}
+        </div>
+         
+
     },
     {
       title: 'Created At',
@@ -164,6 +193,28 @@ const CustomTable = () => {
       sorter: (a, b) => dayjs(a.createdAt).unix() - dayjs(b.createdAt).unix(),
       sortOrder: sortedInfo.columnKey === 'createdAt' ? sortedInfo.order : null,
       ellipsis: true,
+      align: 'center',
+    },
+    {
+      title: 'Add New Item',
+      dataIndex: '',
+      key: '',
+      ellipsis: true,
+      align: 'center',
+      render: (data) => <div className="flex justify-between gap-2">
+        <div className="flex gap-2 text-orange-400 cursor-pointer">
+          <EditOutlined />
+          <span>
+            Edit
+          </span>
+        </div>
+        <div className="flex gap-2 text-red-600 cursor-pointer">
+          <DeleteOutlined />
+          <span>
+            Delete
+          </span>
+        </div>
+      </div>
     },
   ];
   
