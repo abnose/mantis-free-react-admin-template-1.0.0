@@ -2,7 +2,7 @@
   "name": "mantis-material-free-react",
   "version": "1.4.1",
   "private": false,
-  "homepage": "https://themewagon.github.io/mantis-free-react-admin-template",
+  "homepage": "https://abnose.github.io/mantis-free-react-admin-template-1.0.0",
   "author": {
     "name": "CodedThemes",
     "email": "codedthemes@gmail.com",
@@ -17,8 +17,8 @@
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "knip": "knip",
-    "predeploy": "npm run build && cp ./dist/index.html ./dist/404.html",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@ant-design/colors": "7.2.0",
