@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => {
         // },
       ]
     },
-    base: API_URL,
+    base: '/mantis-free-react-admin-template/',
     build: {
       outDir: 'build' // This is the default
     },
