@@ -1,7 +1,10 @@
-import CustoTable from "../../layout/customTable";
+import CustomTable from '../../components/CustomTable';
 const Items = () => {
-  return <div className=""><CustoTable />
-  </div>;
+  return (
+    <div className="">
+      <CustomTable />
+    </div>
+  );
 };
 
 export default Items;
