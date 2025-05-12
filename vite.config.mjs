@@ -40,6 +40,9 @@ export default defineConfig(({ mode }) => {
       ]
     },
     base: API_URL,
+    build: {
+      outDir: 'dist' // This is the default
+    },
     plugins: [react(), jsconfigPaths()]
   };
 });
